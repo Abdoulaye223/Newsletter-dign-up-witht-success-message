@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --Tomato: hsl(4, 100%, 67%);
+
+    --Dark-Slate-Grey: hsl(234, 29%, 20%);
+    --Charcoal-Grey: hsl(235, 18%, 26%);
+    --Grey: hsl(231, 7%, 60%);
+    --White: hsl(0, 0%, 100%);
+    --clr-accent-500: hsl(347, 100%, 66%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+body {
+    background-color: var(--Charcoal-Grey);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.newsletter-cta {
+    max-width: 850px;
+    background-color: var(--White);
+    padding: 1rem;
+}
+
+.newsletter-cta > .content {
+    padding: 1.5rem;
+}
+
+.newsletter-cta img {
+    margin-inline: auto;
+}
+
+.newsletter-cta-list {
+    display: grid;
+    gap: .625rem;
+}
+
+.newsletter-cta-list li {
+    display: grid;
+    grid-template-columns: 2.5rem auto;
+}
+
+.newsletter-cta-list li::before {
+    content: url(./assets/images/icon-list.svg);
+}
+
+h1, p, ul {
+    padding-bottom: 1rem;
+}
+
+input {
+    padding: 1rem;
+    border-radius: .5rem;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    border: 1px solid var(--Grey);
+}
+
+input:hover {
+    color: var(--Grey);
+    border: 2px solid var(--Dark-Slate-Grey);
+}
+
+input:not(:focus):invalid {
+    color: var(--Tomato);
+    border: 1px solid var(--Tomato);
+  }
+  
+  input:not(:focus):invalid {
+    color: var(--Tomato);
+    border: 1px solid var(--Tomato);
+  }
+
+.form-group {
+    display: grid;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group > .error {
+    grid-row: 1;
+    grid-column: 2;
+    text-align: end;
+    color: var(--Tomato);
+    display: none;
+  }
+  
+  .form-group > :not(:focus):invalid + .error {
+    display: block;
+  }
+  
+  .form-group.with-error-field {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .form-group.with-error-field > input {
+    grid-column: 1 / -1;
+  }
+
+.btn {
+    cursor: pointer;
+    background: var(--Charcoal-Grey);
+    color: var(--White);
+    font: inherit;
+    font-weight: bold;
+    border: 0;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    position: relative;
+    background-image: linear-gradient(-90deg,
+        var(--Tomato),
+        var(--clr-accent-500)
+    );
+}
+
+form {
+    isolation: isolate;
+}
+
+.btn:hover::after,
+.btn:focus-visible::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: inherit;
+    border-radius: inherit;
+    translate: 0 1.5rem;
+    filter: blur(1rem);
+    opacity: .5;
+}
+
+
+.newsletter-cta-form {
+    margin-block-start: 1.25rem;
+    display: grid;
+    gap: 1rem;
+}
+
+
+@media (min-width: 650px) {
+    .newsletter-cta {
+        display: grid;
+        grid-template-columns: 1fr .75fr;
+        align-items: center;
+        padding: 2rem;
+        margin-inline: 1rem;
+        border-radius: 1rem;
+    }
+
+    .newsletter-cta > .content {
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
+
+.newsletter-cta-sucess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.succes-message {
+    max-width: 850px;
+    background-color: var(--White);
+    padding: 1rem;
+}
+
+.succes-message img {
+    max-width: 100%;
+    display: block;
+    padding-bottom: 2.5rem;
+}
+
+.succes-message-content {
+    display: grid;
+    padding-bottom: 1rem;
+}
+
+.succes-message-content h2 {
+    padding-bottom: 1rem;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.succes-message-content p {
+    padding-bottom: 15rem;
+}
+
+.hide {
+    display: none;
+  }
+
+@media (min-width: 650px) {
+    .succes-message {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        max-width: 400px;
+        height: 450px;
+        align-items: center;
+        padding: 2rem 3rem 0 3rem ;
+        margin-inline: 1rem;
+        border-radius: 1rem;
+    }
+
+    .succes-message img {
+        max-width: 100%;
+        display: block;
+        padding-bottom: 0rem;
+    }
+
+    .succes-message-content h2 {
+        padding-bottom: 1rem;
+        font-weight: 800;
+        font-size: 35px;
+        padding-left: 0.2rem;
+    }
+
+    .succes-message-content p {
+        padding-bottom: 2rem;
+    }
+
+    .succes-message-content p {
+        font-weight: 500;
+        font-size: 13px;
+        padding-left: 0.2rem;
+    }
+    
+}
